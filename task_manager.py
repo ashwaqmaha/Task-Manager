@@ -3,7 +3,7 @@ import sys
 
 def add_task():
     # Implement logic to add a new task
-    pass
+    print("Testing to see connection")
 
 def display_tasks():
     # Implement logic to display tasks
