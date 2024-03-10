@@ -9,6 +9,12 @@ def add_task():
     else:
         messagebox.showwarning("Task Manager", "Please enter a task title.")
 
+def delete_task():
+    selected_task_index = listbox_tasks.curselection()
+    if selected_task_index:
+        listbox_tasks.delete(selected_task_index)
+    else:
+        messagebox.showwarning("Task Manager", "Please select a task to delete.")
 
 # Create the main application window
 root = tk.Tk()
@@ -27,6 +33,8 @@ button_add_task.grid(row=0, column=2, padx=10, pady=10)
 listbox_tasks = tk.Listbox(root)
 listbox_tasks.grid(row=1, column=0, columnspan=3, padx=10, pady=10, sticky=tk.W + tk.E + tk.N + tk.S)
 
+button_delete_task = tk.Button(root, text="Delete Task", command=delete_task)
+button_delete_task.grid(row=2, column=0, columnspan=3, pady=10)
 
 
 # Start the Tkinter event loop
