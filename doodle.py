@@ -1,19 +1,35 @@
-from tkinter import *
-from tkinter import ttk
-
+import tkinter as tk
+from tkinter import messagebox
 
 def add_task():
-    task_title = entered_task_title.get()
-    print(f"Task Title: {task_title}")
-
-root_main = Tk(className="Task Manager")
-
-ttk.Label(root_main, text="Task Title: ").grid(column=0, row=0)
-entered_task_title = Entry(root_main)
-entered_task_title.grid(column=1, row=0)
+    task_title = entry_task_title.get()
+    if task_title:
+        listbox_tasks.insert(tk.END, task_title)
+        entry_task_title.delete(0, tk.END)  # Clear the entry widget
+    else:
+        messagebox.showwarning("Task Manager", "Please enter a task title.")
 
 
-ttk.Button(root_main, text="Add Task", command=add_task).grid(column=0, row=3)
+# Create the main application window
+root = tk.Tk()
+root.title("Task Manager")
 
-root_main.mainloop()
+# Create and place widgets
+label_task_title = tk.Label(root, text="Task Title:")
+label_task_title.grid(row=0, column=0, padx=10, pady=10)
+
+entry_task_title = tk.Entry(root)
+entry_task_title.grid(row=0, column=1, padx=10, pady=10)
+
+button_add_task = tk.Button(root, text="Add Task", command=add_task)
+button_add_task.grid(row=0, column=2, padx=10, pady=10)
+
+listbox_tasks = tk.Listbox(root)
+listbox_tasks.grid(row=1, column=0, columnspan=3, padx=10, pady=10, sticky=tk.W + tk.E + tk.N + tk.S)
+
+
+
+# Start the Tkinter event loop
+root.mainloop()
+
 
