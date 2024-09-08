@@ -1,7 +1,5 @@
 # Terminal Task Manager
 
-**Stay on top of your tasks effortlessly with the powerful, developer-focused Terminal Task Manager.**  
-
 This command-line-based task manager is designed for developers who thrive in a terminal environment, offering intuitive task management features with the simplicity of a CLI interface. Built in Python, this project demonstrates expertise in file handling, user interaction, and command-line tools.
 
 ## Table of contents
